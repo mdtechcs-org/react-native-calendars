@@ -56,7 +56,6 @@ export default class BasicDay extends Component<BasicDayProps> {
     disableAllTouchEventsForDisabledDays: PropTypes.bool,
     /** Disable all touch events for inactive days. can be override with disableTouchEvent in markedDates*/
     disableAllTouchEventsForInactiveDays: PropTypes.bool
-
   };
 
   style = styleConstructor(this.props.theme);
@@ -135,7 +134,7 @@ export default class BasicDay extends Component<BasicDayProps> {
     if (this.isSelected()) {
       style.push(this.style.selected);
       if (selectedColor) {
-        style.push({backgroundColor: selectedColor});
+        style.push({backgroundColor: selectedColor, borderWidth: 2, borderColor: 'white'});
       }
     } else if (this.isToday()) {
       style.push(this.style.today);
