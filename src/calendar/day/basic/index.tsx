@@ -3,7 +3,7 @@ import values from 'lodash/values';
 import PropTypes from 'prop-types';
 
 import React, {Component, Fragment} from 'react';
-import {TouchableOpacity, Text, View} from 'react-native';
+import {TouchableOpacity, Text, View, Platform} from 'react-native';
 
 import {Theme, DateData, DayState} from '../../../types';
 // @ts-expect-error
@@ -156,7 +156,7 @@ export default class BasicDay extends Component<BasicDayProps> {
     const style = [this.style.text] as object[];
 
     if (this.isSelected()) {
-      style.push(this.style.selectedText);
+      style.push(this.style.selectedText, {marginTop: Platform.OS === 'ios' ? 5 : 2});
       if (selectedTextColor) {
         style.push({color: selectedTextColor});
       }

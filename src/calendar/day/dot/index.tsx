@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, Platform} from 'react-native';
 import styleConstructor from './style';
 
 const Dot = props => {
@@ -39,7 +39,7 @@ const Dot = props => {
             justifyContent: 'center',
             borderRadius: 28,
             right: 22,
-            bottom: 5
+            bottom: Platform.OS === 'ios' ? 5 : 10
           }}
         >
           <Image source={require('../../img/beer.png')}></Image>
