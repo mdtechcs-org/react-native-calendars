@@ -127,6 +127,26 @@ export default class BasicDay extends Component<BasicDayProps> {
     return this.props.markingType === Marking.markingTypes.CUSTOM;
   }
 
+  borderColorNameToHex(colour: string)
+  {
+    var colours = {"red" : "#FF485E", "purple": "#D9BBFF", "blue": "#89EAFF"};
+
+    if (typeof colours[colour.toLowerCase()] != 'undefined')
+        return colours[colour.toLowerCase()];
+
+    return '#ffffff';
+  }
+
+  colourNameToHex(colour: string)
+  {
+    var colours = {"red" : "#FF7078", "purple": "#B072FF", "blue": "#00D1FF"};
+
+    if (typeof colours[colour.toLowerCase()] != 'undefined')
+        return colours[colour.toLowerCase()];
+
+    return '#ffffff';
+  }
+
   getContainerStyle() {
     const {customStyles, selectedColor} = this.marking;
     const style: object[] = [this.style.base];
@@ -134,7 +154,7 @@ export default class BasicDay extends Component<BasicDayProps> {
     if (this.isSelected()) {
       style.push(this.style.selected);
       if (selectedColor) {
-        style.push({backgroundColor: selectedColor, borderWidth: 2, borderColor: 'white'});
+        style.push({backgroundColor: this.colourNameToHex(selectedColor), borderWidth: 2, borderColor: this.borderColorNameToHex(selectedColor) });
       }
     } else if (this.isToday()) {
       style.push(this.style.today);

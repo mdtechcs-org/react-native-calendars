@@ -27,6 +27,16 @@ const Dot = props => {
   }
   const {customDot} = props;
 
+  const colourNameToHex = (colour: string) =>
+  {
+    var colours = {"red" : "#FF7078", "purple": "#B072FF", "blue": "#00D1FF"};
+
+    if (typeof colours[colour.toLowerCase()] != 'undefined')
+        return colours[colour.toLowerCase()];
+
+    return '#ffffff';
+  }
+
   return (
     <View style={dotStyle}>
       {customDot[0].marked ? (
@@ -34,12 +44,17 @@ const Dot = props => {
           style={{
             height: 22,
             width: 22,
-            backgroundColor: customDot[0].color,
+            backgroundColor: colourNameToHex(customDot[0].color) ,
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 28,
             right: 22,
-            bottom: Platform.OS === 'ios' ? 5 : 10
+            elevation: Platform.OS === 'ios' ? 20 : 5,
+            bottom: Platform.OS === 'ios' ? 5 : 10,
+            shadowColor: '#000',
+            shadowOffset: {width: 0, height: 1},
+            shadowOpacity: 1,
+            shadowRadius: 1,
           }}
         >
           <Image source={require('../../img/beer.png')}></Image>
