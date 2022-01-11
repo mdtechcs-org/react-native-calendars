@@ -8,8 +8,8 @@ export default function (theme: Theme = {}) {
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingLeft: 10,
-      paddingRight: 10,
+      paddingLeft: 25,
+      paddingRight: 25,
       marginTop: 6,
       alignItems: 'center'
     },
@@ -47,7 +47,7 @@ export default function (theme: Theme = {}) {
     dayHeader: {
       marginTop: 2,
       marginBottom: 7,
-      width: 32,
+      width: 40,
       textAlign: 'center',
       fontSize: appStyle.textDayHeaderFontSize,
       fontFamily: appStyle.textDayHeaderFontFamily,
