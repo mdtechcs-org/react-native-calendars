@@ -163,7 +163,7 @@ class CalendarHeader extends Component<Props> {
       }
 
       return (
-        <Text allowFontScaling={false} key={idx} style={dayStyle} numberOfLines={1} accessibilityLabel={''}>
+        <Text allowFontScaling={false} key={idx} style={[dayStyle, {textTransform: 'uppercase'}]} numberOfLines={1} accessibilityLabel={''}>
           {day}
         </Text>
       );
@@ -182,7 +182,7 @@ class CalendarHeader extends Component<Props> {
       <Fragment>
         <Text
           allowFontScaling={false}
-          style={this.style.monthText}
+          style={[this.style.monthText, {textTransform: 'uppercase'}]}
           testID={testID ? `${HEADER_MONTH_NAME}-${testID}` : HEADER_MONTH_NAME}
           {...webProps}
         >
